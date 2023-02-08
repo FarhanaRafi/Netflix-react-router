@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap";
-
+import { BsInfoCircle } from "react-icons/bs";
 import { BiPlayCircle, BiPlusCircle } from "react-icons/bi";
 import { BsHandThumbsUp } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -21,11 +21,11 @@ const SingleCard = (props) => {
             <BsHandThumbsUp className="text-white ml-3" />
             <BiPlusCircle className="text-white ml-3" />
             <Button
-              variant="success"
+              className="text-white"
+              variant="transparent"
               onClick={() => navigate("/movie-details/" + imdbID)}
             >
-              {" "}
-              Details
+              <BsInfoCircle />
             </Button>
             {/* <i class="bi bi-play-circle mr-2"></i> */}
             {/* <i class="bi bi-hand-thumbs-up mr-2"></i> */}

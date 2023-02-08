@@ -4,8 +4,6 @@ import { useState } from "react";
 import { Spinner, Card, Container, Row, Col, ListGroup } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import StarRatings from "react-star-ratings";
-// import MovieDetailComment from "./MovieDetailComment"
-// import AllCards from "./AllCards";
 
 const MovieDetails = (props) => {
   const params = useParams();
