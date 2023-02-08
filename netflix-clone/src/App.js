@@ -23,6 +23,7 @@ function App() {
           <Route element={<Jumbo />} path="/" />
           <Route element={<TvShowSeries />} path="/tv-shows" />
           <Route element={<MovieDetails />} path="/movie-details/:movieId" />
+          <Route element={<NotFoundPage />} path="*" />
         </Routes>
         <Routes>
           <Route element={<TvShows />} path="/" />
@@ -30,7 +31,6 @@ function App() {
         <Routes>
           <Route element={<AllCards />} path="/" />
           <Route element={<Profile />} path="/profile" />
-          <Route element={<NotFoundPage />} path="*" />
         </Routes>
         <MyFooter />
       </div>

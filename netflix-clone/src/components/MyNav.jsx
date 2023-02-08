@@ -1,4 +1,11 @@
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import {
+  Navbar,
+  Nav,
+  NavDropdown,
+  Form,
+  FormControl,
+  Button,
+} from "react-bootstrap";
 import { FiSearch } from "react-icons/fi";
 import { IoNotifications } from "react-icons/io5";
 import { Link, useLocation } from "react-router-dom";
@@ -53,9 +60,25 @@ const MyNav = () => {
           </Link>
         </Nav>
         <Nav>
-          <Nav.Link href="#">
+          <Form inline>
+            {
+              <FormControl
+                type="text"
+                placeholder={
+                  location.pathname === "/tv-shows"
+                    ? "Search in TV Shows…"
+                    : "Search..."
+                }
+                className="mr-sm-2 bg-transparent "
+              />
+            }
+            <Button variant="transparent text-white">
+              <FiSearch />
+            </Button>
+          </Form>
+          {/* <Nav.Link href="#">
             <FiSearch />
-          </Nav.Link>
+          </Nav.Link> */}
           <Nav.Link eventKey={2} href="#">
             Farhana
           </Nav.Link>

@@ -104,9 +104,10 @@ const MovieDetails = (props) => {
                       })}
                     </ListGroup>
                   ) : (
-                    <ListGroup>
-                      <p> No Comments Found</p>
-                    </ListGroup>
+                    ""
+                  )}
+                  {(comments === null || comments.length === 0) && (
+                    <h4>No comments available</h4>
                   )}
                 </div>
               </Col>
