@@ -26,7 +26,7 @@ const MovieDetails = (props) => {
 
   useEffect(() => {
     let foundMovieObject = fetchMovie();
-    // let commentFound = movieComments();
+    let commentFound = movieComments();
     console.log("movie details found", foundMovieObject);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -54,7 +54,8 @@ const MovieDetails = (props) => {
        <Container>
       {movieToShow ? ( 
         <> 
-     
+     <Row>
+              <Col xs={6}>
             
             <h2 className="text-white text-center">
               Details of {movieToShow.Title}
@@ -80,14 +81,26 @@ const MovieDetails = (props) => {
                   </Card.Body>
                   
                 </Card>
-                <p>
-        {comments ? (<ListGroup>{comments.map((comment) =>{return<ListGroup key={comment._id}> Comment: {comment.comment} | Rating:{comment.rate}></ListGroup>})}
+                </Col>
+                <Col>
+                <h2 className="ml-5 text-white mb-5">Comments</h2>
+                <div className= "text-white ml-5">
+        {comments ? (<ListGroup>{comments.map((comment) =>{return<ListGroup key={comment._id}>
+          <p>
+          <strong> Comment:</strong> {comment.comment}
+          </p>
+          <p>
+           <strong> Rating:</strong>{comment.rate}
+           </p></ListGroup>
+   
+      })}
         </ListGroup>) : (" ")
         }
 
-                    </p>
+                    </div>
+                    </Col>
        
-         
+         </Row>
              </>
              
              ):(<Spinner variant="info" animation="border" /> )}
