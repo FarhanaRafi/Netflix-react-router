@@ -80,7 +80,7 @@ const MovieDetails = (props) => {
                 </Card>
               </Col>
               {/* <Col>
-              {comments.length? }
+              {comments? }
               </Col> */}
             </Row>
           </Container>
