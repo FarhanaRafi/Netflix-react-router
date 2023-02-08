@@ -75,7 +75,7 @@ const MyNav = () => {
           <NavDropdown.Item href="#">Another action</NavDropdown.Item>
           <NavDropdown.Item href="#">Something</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#">Separated link</NavDropdown.Item>
+          <NavDropdown.Item href="#">Logout</NavDropdown.Item>
         </NavDropdown>
       </Navbar.Collapse>
     </Navbar>

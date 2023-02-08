@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TvShowSeries from "./components/TvShowSeries";
 import MovieDetails from "./components/MovieDetails";
 import Profile from "./components/Profile";
+import NotFoundPage from "./components/NotFoundPage";
 // import Profile from "./components/Profile";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Routes>
           <Route element={<AllCards />} path="/" />
           <Route element={<Profile />} path="/profile" />
+          <Route element={<NotFoundPage />} path="*" />
         </Routes>
         <MyFooter />
       </div>
