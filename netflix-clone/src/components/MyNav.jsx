@@ -1,9 +1,10 @@
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { FiSearch } from "react-icons/fi";
 import { IoNotifications } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const MyNav = () => {
+  const location = useLocation();
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark" className="navbar">
       <Navbar.Brand href="#home">
@@ -17,9 +18,25 @@ const MyNav = () => {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#features">Home</Nav.Link>
+          <Link to="/">
+            <div
+              className={
+                location.pathname === "/" ? "nav-link active" : "nav-link"
+              }
+            >
+              Home
+            </div>
+          </Link>
           <Link to="/tv-shows">
-            <Nav.Link>TV Shows</Nav.Link>
+            <div
+              className={
+                location.pathname === "/tv-shows"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
+              TV Shows
+            </div>
           </Link>
           <Nav.Link href="#pricing">Movies</Nav.Link>
           <Nav.Link href="#pricing">Recently Added</Nav.Link>

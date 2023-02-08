@@ -2,12 +2,15 @@
 
 import { BiPlayCircle, BiPlusCircle } from "react-icons/bi";
 import { BsHandThumbsUp } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const SingleCard = (props) => {
   return (
     //   <div className="mb-3 card1">
     <div className="movie-card">
-      <img src={props.card.Poster} alt="#" height={340} />
+      <Link to={"/movie-details/" + props.card.imdbID}>
+        <img src={props.card.Poster} alt="#" height={340} />
+      </Link>
       <div>
         <div className="book-title info-container ">
           <div className="play-btn">
