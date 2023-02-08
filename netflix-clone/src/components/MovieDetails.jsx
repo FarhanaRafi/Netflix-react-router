@@ -1,8 +1,9 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Spinner, Card } from "react-bootstrap";
+import { Spinner, Card, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import AllCards from "./AllCards";
 // import AllCards from "./AllCards";
 
 const MovieDetails = (props) => {
@@ -17,6 +18,7 @@ const MovieDetails = (props) => {
     if (response.ok) {
       let data = await response.json();
       console.log(data, "data");
+      setMovieToShow(data);
     }
     console.log(response);
   };
@@ -27,7 +29,7 @@ const MovieDetails = (props) => {
     //   (card) => card.imdbId.toString() === params.movieId
     // );
     console.log("movie details found", foundMovieObject);
-    setMovieToShow(foundMovieObject);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -35,16 +37,25 @@ const MovieDetails = (props) => {
     <>
       {movieToShow ? (
         <>
-          <h2>Details of {movieToShow.Title}</h2>
-          <Card className="mb-3">
-            <Card.Img variant="top" src={movieToShow.Poster} />
-            <Card.Body>
-              <Card.Title>
-                {movieToShow.Title} - {movieToShow.Type}
-              </Card.Title>
-              {/* <Card.Text>{pastaToShow.description}</Card.Text> */}
-            </Card.Body>
-          </Card>
+          <Container>
+            <h2 className="text-white text-center">
+              Details of {movieToShow.Title}
+            </h2>
+            <Card className="mb-3">
+              <Card.Img variant="top" src={movieToShow.Poster} height={800} />
+              <Card.Body>
+                <Card.Title>
+                  {movieToShow.Title} {movieToShow.Type} -{" "}
+                  {movieToShow.Language} - {movieToShow.Country}
+                </Card.Title>
+                <Card.Text>
+                  {movieToShow.Type} - {movieToShow.Language} -{" "}
+                  {movieToShow.Country}
+                </Card.Text>
+                <Card.Text>{movieToShow.Awards}</Card.Text>
+              </Card.Body>
+            </Card>
+          </Container>
         </>
       ) : (
         <Spinner variant="info" animation="border" />
