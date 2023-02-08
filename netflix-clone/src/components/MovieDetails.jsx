@@ -1,9 +1,10 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Spinner, Card, Container, Row, Col ,ListGroup } from "react-bootstrap";
+import { Spinner, Card, Container, Row, Col, ListGroup } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import MovieDetailComment from "./MovieDetailComment"
+import StarRatings from "react-star-ratings";
+// import MovieDetailComment from "./MovieDetailComment"
 // import AllCards from "./AllCards";
 
 const MovieDetails = (props) => {
@@ -51,16 +52,15 @@ const MovieDetails = (props) => {
 
   return (
     <>
-       <Container>
-      {movieToShow ? ( 
-        <> 
-     <Row>
+      <Container>
+        {movieToShow ? (
+          <>
+            <Row>
               <Col xs={6}>
-            
-            <h2 className="text-white text-center">
-              Details of {movieToShow.Title}
-            </h2>
-            
+                <h2 className="text-white text-center">
+                  Details of {movieToShow.Title}
+                </h2>
+
                 <Card className="mb-3 mx-5 card-img">
                   <Card.Img
                     variant="top"
@@ -77,35 +77,46 @@ const MovieDetails = (props) => {
                       {movieToShow.Country}
                     </Card.Text>
                     <Card.Text>{movieToShow.Awards}</Card.Text>
-                   
                   </Card.Body>
-                  
                 </Card>
-                </Col>
-                <Col>
+              </Col>
+              <Col>
                 <h2 className="ml-5 text-white mb-5">Comments</h2>
-                <div className= "text-white ml-5">
-        {comments ? (<ListGroup>{comments.map((comment) =>{return<ListGroup key={comment._id}>
-          <p>
-          <strong> Comment:</strong> {comment.comment}
-          </p>
-          <p>
-           <strong> Rating:</strong>{comment.rate}
-           </p></ListGroup>
-   
-      })}
-        </ListGroup>) : (" ")
-        }
-
-                    </div>
-                    </Col>
-       
-         </Row>
-             </>
-             
-             ):(<Spinner variant="info" animation="border" /> )}
-             </Container>
-           </>
+                <div className="text-white ml-5">
+                  {comments ? (
+                    <ListGroup>
+                      {comments.map((comment) => {
+                        return (
+                          <ListGroup key={comment._id}>
+                            <p>
+                              <strong> Comment:</strong> {comment.comment}
+                            </p>
+                            <p>
+                              <strong className="mr-2"> Rating:</strong>{" "}
+                              <StarRatings
+                                rating={comment.rate}
+                                numberOfStars={5}
+                                name="rating"
+                                starDimension="20px"
+                                starRatedColor="red"
+                              />
+                            </p>
+                          </ListGroup>
+                        );
+                      })}
+                    </ListGroup>
+                  ) : (
+                    " "
+                  )}
+                </div>
+              </Col>
+            </Row>
+          </>
+        ) : (
+          <Spinner variant="info" animation="border" />
+        )}
+      </Container>
+    </>
   );
 };
 
