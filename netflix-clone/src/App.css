@@ -94,9 +94,9 @@
   height: 8vh;
 }
 
-.card-img{
-  width:500px;
-  
+.background{
+  background-color: black;
+  color: white;
 }
 
 

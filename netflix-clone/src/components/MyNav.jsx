@@ -40,7 +40,17 @@ const MyNav = () => {
           </Link>
           <Nav.Link href="#pricing">Movies</Nav.Link>
           <Nav.Link href="#pricing">Recently Added</Nav.Link>
-          <Nav.Link href="#pricing">My List</Nav.Link>
+          <Link to="/profile">
+            <div
+              className={
+                location.pathname === "/profile"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
+              My Profile
+            </div>
+          </Link>
         </Nav>
         <Nav>
           <Nav.Link href="#">

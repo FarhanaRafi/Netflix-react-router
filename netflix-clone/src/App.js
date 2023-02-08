@@ -8,6 +8,7 @@ import Jumbo from "./components/Jumbo";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TvShowSeries from "./components/TvShowSeries";
 import MovieDetails from "./components/MovieDetails";
+import Profile from "./components/Profile";
 // import Profile from "./components/Profile";
 
 function App() {
@@ -25,9 +26,9 @@ function App() {
         <Routes>
           <Route element={<TvShows />} path="/" />
         </Routes>
-        {/* <TvShows /> */}
         <Routes>
           <Route element={<AllCards />} path="/" />
+          <Route element={<Profile />} path="/profile" />
         </Routes>
         <MyFooter />
       </div>

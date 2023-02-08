@@ -32,7 +32,7 @@ const CardSet = (props) => {
 
   return (
     <>
-      <h2 className="text-white ">{title}</h2>
+      <h2 className="text-white ml-3">{title}</h2>
       {isLoading && <Spinner animation="border" variant="success" />}
       {isError && <Alert variant="danger">Aww snap, we got an error!</Alert>}
       <Row className="mt-3 ">

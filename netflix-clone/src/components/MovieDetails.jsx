@@ -59,13 +59,13 @@ const MovieDetails = (props) => {
                   Details of {movieToShow.Title}
                 </h2>
 
-                <Card className="mb-3 mx-5 card-img">
+                <Card className="mb-3 mx-5 ml-n2 card-img">
                   <Card.Img
                     variant="top"
                     src={movieToShow.Poster}
                     height={600}
                   />
-                  <Card.Body>
+                  <Card.Body className="background">
                     <Card.Title>
                       {movieToShow.Title} {movieToShow.Type} -{" "}
                       {movieToShow.Language} - {movieToShow.Country}
@@ -104,7 +104,9 @@ const MovieDetails = (props) => {
                       })}
                     </ListGroup>
                   ) : (
-                    " "
+                    <ListGroup>
+                      <p> No Comments Found</p>
+                    </ListGroup>
                   )}
                 </div>
               </Col>
