@@ -1,8 +1,9 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Spinner, Card, Container, Row, Col } from "react-bootstrap";
+import { Spinner, Card, Container, Row, Col ,ListGroup } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import MovieDetailComment from "./MovieDetailComment"
 // import AllCards from "./AllCards";
 
 const MovieDetails = (props) => {
@@ -25,9 +26,7 @@ const MovieDetails = (props) => {
 
   useEffect(() => {
     let foundMovieObject = fetchMovie();
-    let commentFound = movieComments();
-    console.log(commentFound);
-
+    // let commentFound = movieComments();
     console.log("movie details found", foundMovieObject);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -52,19 +51,20 @@ const MovieDetails = (props) => {
 
   return (
     <>
-      {movieToShow ? (
-        <>
-          <Container>
+       <Container>
+      {movieToShow ? ( 
+        <> 
+     
+            
             <h2 className="text-white text-center">
               Details of {movieToShow.Title}
             </h2>
-            <Row>
-              <Col>
-                <Card className="mb-3 mx-5">
+            
+                <Card className="mb-3 mx-5 card-img">
                   <Card.Img
                     variant="top"
                     src={movieToShow.Poster}
-                    height={800}
+                    height={600}
                   />
                   <Card.Body>
                     <Card.Title>
@@ -76,19 +76,23 @@ const MovieDetails = (props) => {
                       {movieToShow.Country}
                     </Card.Text>
                     <Card.Text>{movieToShow.Awards}</Card.Text>
+                   
                   </Card.Body>
+                  
                 </Card>
-              </Col>
-              {/* <Col>
-              {comments? }
-              </Col> */}
-            </Row>
-          </Container>
-        </>
-      ) : (
-        <Spinner variant="info" animation="border" />
-      )}
-    </>
+                <p>
+        {comments ? (<ListGroup>{comments.map((comment) =>{return<ListGroup key={comment._id}> Comment: {comment.comment} | Rating:{comment.rate}></ListGroup>})}
+        </ListGroup>) : (" ")
+        }
+
+                    </p>
+       
+         
+             </>
+             
+             ):(<Spinner variant="info" animation="border" /> )}
+             </Container>
+           </>
   );
 };
 

@@ -94,6 +94,11 @@
   height: 8vh;
 }
 
+.card-img{
+  width:500px;
+  
+}
+
 
 /* .card1 img {
   max-width: 100%;
